@@ -1,3 +1,3 @@
 
-## NFT Marketplace using Next.js, Tailwind, & Hardhat
+## NFT Marketplace using Next.js, Polygon, Solidity, & IPFS
 
