@@ -3,12 +3,14 @@ import { useRouter } from 'next/router';
 import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { Button } from '../components';
+import { Button, Input } from '../components';
 import images from '../assets';
 
 const createNFT = () => {
   const { theme } = useTheme();
   const [fileURL, setfileURL] = useState(null);
+
+  const [forumInput, setForumInput] = useState({ price: '', name: '', description: '' });
 
   const onDrop = useCallback(() => {}, []);
 
@@ -32,6 +34,8 @@ const createNFT = () => {
     `,
     [isDragActive, isDragAccept, isDragReject],
   );
+
+  console.log(forumInput);
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
@@ -70,7 +74,6 @@ const createNFT = () => {
                 <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm mt-2">
                   Browse Media
                 </p>
-
               </div>
             </div>
             {fileURL && (
@@ -81,6 +84,33 @@ const createNFT = () => {
               </aside>
             )}
           </div>
+        </div>
+
+        <Input
+          inputType="input"
+          title="Name"
+          placeholder="NFT Name"
+          handleClick={(e) => setForumInput({ ...forumInput, name: e.target.value })}
+        />
+        <Input
+          inputType="textarea"
+          title="Description"
+          placeholder="NFT Description"
+          handleClick={(e) => setForumInput({ ...forumInput, description: e.target.value })}
+        />
+        <Input
+          inputType="number"
+          title="Price"
+          placeholder="Enter Price"
+          handleClick={(e) => setForumInput({ ...forumInput, price: e.target.value })}
+        />
+
+        <div className="mt-7 w-full flex justify-end ">
+          <Button
+            btnName="Create NFT"
+            classStyles="rounded-xl"
+            handleClick={() => {}}
+          />
         </div>
       </div>
     </div>
