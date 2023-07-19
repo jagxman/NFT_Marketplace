@@ -1,6 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['ipfs.infura.io'],
+    domains: ['jagster.infura-ipfs.io'],
   },
 };
+
