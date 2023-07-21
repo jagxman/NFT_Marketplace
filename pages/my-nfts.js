@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { NFTContext } from '../context/NFTContext';
 import { NFTCard, Loader, Banner } from '../components';
 import images from '../assets';
@@ -10,6 +10,15 @@ const myNFTs = () => {
 
   const [nfts, setNfts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    fetchMyNFTsOrListedNFTs()
+      .then((items) => {
+        setNfts(items);
+
+        setIsLoading(false);
+      });
+  }, []);
 
   if (isLoading) {
     return (
@@ -53,7 +62,7 @@ const myNFTs = () => {
               SearchBar
             </div>
             <div className="mt-3 w-full flex flex-wrap">
-              {nfts.map((nft) => <NFTCard key={nft.tokenId} nft={nft} />)}
+              {nfts.map((nft) => <NFTCard key={nft.tokenId} nft={nft} onProfilePage />)}
             </div>
           </div>
         )}
