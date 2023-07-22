@@ -28,6 +28,7 @@ export const NFTContext = React.createContext();
 export const NFTProvider = ({ children }) => {
   const nftcurrency = 'ETH';
   const [currentAccount, setcurrentAccount] = useState('');
+  const [isLoadingNFT, setIsLoadingNFT] = useState(false);
 
   const checkConnected = async () => {
     if (!window.ethereum) return alert('Please install MetaMask.');
@@ -107,6 +108,7 @@ export const NFTProvider = ({ children }) => {
   };
 
   const fetchNFTs = async () => {
+    setIsLoadingNFT(false);
     const provider = new ethers.providers.JsonRpcProvider();
     const contract = fetchContract(provider);
 
@@ -142,6 +144,7 @@ export const NFTProvider = ({ children }) => {
   };
 
   const fetchMyNFTsOrListedNFTs = async (type) => {
+    setIsLoadingNFT(false);
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
 
@@ -198,7 +201,11 @@ export const NFTProvider = ({ children }) => {
       value: price,
     });
 
+    setIsLoadingNFT(true);
+
     await transaction.wait();
+
+    setIsLoadingNFT(false);
   };
 
   return (
@@ -213,6 +220,7 @@ export const NFTProvider = ({ children }) => {
         fetchMyNFTsOrListedNFTs,
         buyNFT,
         createSale,
+        isLoadingNFT,
       }}
     >
       {children}

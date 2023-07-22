@@ -3,14 +3,13 @@ import { useRouter } from 'next/router';
 import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { create } from 'ipfs-http-client';
-import { Button, Input } from '../components';
+import { Button, Input, Loader } from '../components';
 import images from '../assets';
 
 import { NFTContext } from '../context/NFTContext';
 
 const createNFT = () => {
-  const { uploadToIPFS, createNFT } = useContext(NFTContext);
+  const { uploadToIPFS, createNFT, isLoadingNFT } = useContext(NFTContext);
   const { theme } = useTheme();
   const [fileURL, setfileURL] = useState(null);
   const router = useRouter();
@@ -36,6 +35,14 @@ const createNFT = () => {
     accept: 'image/*',
     maxSize: 5000000,
   });
+
+  if (isLoadingNFT) {
+    return (
+      <div className="flexStart min-h-screen">
+        <Loader />
+      </div>
+    );
+  }
 
   const fileStyle = useMemo(
     () => `dark:bg-nft-black-1 bg-white border dark:border-white border-nft-gray-2 flex flex-col items-center p-5 rounded-sm border-dashed
@@ -72,12 +79,12 @@ const createNFT = () => {
                     h={100}
                     objectFit="contain"
                     alt="fileUpload"
-                    className={theme === 'light' && 'filter invert'}
+                    className={theme === 'light' ? 'filter invert' : ''}
                   />
                 </div>
 
                 <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm">
-                  Drag N' Drop
+                  Drag N&apos; Drop
                 </p>
 
                 <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm mt-2">

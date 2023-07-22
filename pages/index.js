@@ -109,7 +109,7 @@ const Home = () => {
       <div className="w-full minmd:w-4/5">
         <Banner
           banner={(<>Discover, collect, and sell <br />extraordinary NFTs</>)}
-          childStyles="md:text-4xl sm:text-2xl xs:text-xl text-left"
+          childStyles="md:text-4xl sm:text-2xl xs:text-xl text-lef text-white"
           parentStyles="justify-start mb-7 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"
         />
 
@@ -131,7 +131,7 @@ const Home = () => {
                     <CreatorCard
                       key={creator.seller}
                       rank={i + 1}
-                      creatorImage={images[`creator${i + 1}`]}
+                      creatorImage={images[`creator${(i % 10) + 1}`]}
                       creatorEths={creator.sum}
                       creatorName={shortenAddress(creator.seller)}
                     />
@@ -156,7 +156,7 @@ const Home = () => {
                         layout="fill"
                         objectFit="contain"
                         alt="left"
-                        className={theme === 'light' && 'filter invert'}
+                        className={theme === 'light' ? 'filter invert' : ''}
                       />
                     </div>
 
@@ -169,7 +169,7 @@ const Home = () => {
                         layout="fill"
                         objectFit="contain"
                         alt="left"
-                        className={theme === 'light' && 'filter invert'}
+                        className={theme === 'light' ? 'filter invert' : ''}
                       />
                     </div>
                   </>

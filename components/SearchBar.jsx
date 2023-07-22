@@ -34,7 +34,7 @@ const SearchBar = ({ activeSelect, setActiveSelect, handleSearch, clearSearch })
           height={20}
           alt="search"
           objectFit="contain"
-          className={theme === 'light' && 'filter invert'}
+          className={theme === 'light' ? 'filter invert' : ''}
         />
         <input
           type="text"
@@ -47,7 +47,7 @@ const SearchBar = ({ activeSelect, setActiveSelect, handleSearch, clearSearch })
 
       <div
         onClick={() => setToggle((prev) => !prev)}
-        className="relative flexBetween ml-4 sm:ml-0 sm:mt-2 min-w-190 cursor-pointer dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 border-gray-2 px-4 rounded-md"
+        className="relative flexBetween ml-4 sm:ml-0 sm:mt-2 min-w-190 cursor-pointer dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 border-gray-2 px-4 py-3 rounded-md"
       >
         <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-xs">
           {activeSelect}
@@ -59,7 +59,7 @@ const SearchBar = ({ activeSelect, setActiveSelect, handleSearch, clearSearch })
           width={15}
           height={15}
           alt="arrow"
-          className={theme === 'light' && 'filter invert'}
+          className={theme === 'light' ? 'filter invert' : ''}
         />
 
         {toggle && (
