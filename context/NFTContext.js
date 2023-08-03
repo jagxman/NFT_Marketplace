@@ -4,9 +4,10 @@ import { ethers } from 'ethers';
 import axios from 'axios';
 import { MarketAddress, MarketAddressABI } from './constants';
 
-const projectId = '2SjdYAKCSHkpLOsNAQxK25Ke0aG';
-const projectSecret = '1cfcff25a2b070603ed60aeec05a5c00';
-const auth = `Basic ${Buffer.from(`${projectId}:${projectSecret}`).toString(
+const project = process.env.PROJECT_ID;
+const secret = process.env.SECRET;
+
+const auth = `Basic ${Buffer.from(`${project}:${secret}`).toString(
   'base64',
 )}`;
 
@@ -60,7 +61,7 @@ export const NFTProvider = ({ children }) => {
     try {
       const added = await client.add({ content: file });
 
-      const url = `https://jagster.infura-ipfs.io/ipfs/${added.path}`;
+      const url = `${process.env.BASE_URL}${added.path}`;
 
       return url;
     } catch (error) {
@@ -78,7 +79,7 @@ export const NFTProvider = ({ children }) => {
     try {
       const added = await client.add(data);
 
-      const url = `https://jagster.infura-ipfs.io/ipfs/${added.path}`;
+      const url = `${process.env.BASE_URL}${added.path}`;
 
       await createSale(url, price);
 
@@ -109,7 +110,7 @@ export const NFTProvider = ({ children }) => {
 
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = new ethers.providers.JsonRpcProvider('https://sepolia.infura.io/v3/7dff926bfb5044d1bbe9a5565b48b49c');
     const contract = fetchContract(provider);
 
     const data = await contract.fetchMarketItems();
