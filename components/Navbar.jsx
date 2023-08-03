@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { local } from 'web3modal';
 import { Button } from '.';
 import images from '../assets';
 import { NFTContext } from '../context/NFTContext';

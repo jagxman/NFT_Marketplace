@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Banner, CreatorCard, NFTCard, SearchBar, Loader } from '../components';
 import images from '../assets';
-import { makeId } from '../utils/makeId';
 import { getCreators } from '../utils/getTopCreators';
 
 import { NFTContext } from '../context/NFTContext';

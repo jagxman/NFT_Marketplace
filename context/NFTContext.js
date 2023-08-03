@@ -81,6 +81,7 @@ export const NFTProvider = ({ children }) => {
 
       const url = `${process.env.BASE_URL}${added.path}`;
 
+      // eslint-disable-next-line no-use-before-define
       await createSale(url, price);
 
       router.push('/');

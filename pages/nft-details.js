@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { NFTContext } from '../context/NFTContext';
-import { NFTCard, Loader, Button, Modal } from '../components';
+import { Loader, Button, Modal } from '../components';
 import images from '../assets';
 import { shortenAddress } from '../utils/shortenAddress';
 
@@ -150,12 +150,12 @@ const NFTDetails = () => {
             ? (
               <Button btnName="List on Marketplace" classStyles="mr-5 sm:mr-0 sm:mb-5 rounded-xl" handleClick={() => router.push(`/resell-nft?tokenId=${nft.tokenId}&tokenURI=${nft.tokenURI}`)} />
             )
-            :(
+            : (
               <Button
                 btnName={`Purchase for ${nft.price} ${nftcurrency}`}
                 handleClick={() => setPaymentModal(true)}
                 classStyles="mr-5 sm:mr-0 sm:mb-5 rounded-xl"
-              />,
+              />
             )}
         </div>
       </div>
@@ -182,14 +182,13 @@ const NFTDetails = () => {
         />
       )}
 
-
       {isLoadingNFT && (
         <Modal
           header="Buying NFT..."
           body={(
-            <div className='flexCenter flex-col text-center'>
-            <div className='relative w-52 h-52'> <Loader/></div>
-             </div>
+            <div className="flexCenter flex-col text-center">
+              <div className="relative w-52 h-52"> <Loader /></div>
+            </div>
           )}
           handleClose={() => setPaymentModal(false)}
         />

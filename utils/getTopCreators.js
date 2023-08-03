@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 export const getCreators = (nfts) => {
   const creators = nfts.reduce((creatorObj, nft) => {
     (creatorObj[nft.seller] = creatorObj[nft.seller] || []).push(nft);

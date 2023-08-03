@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { useState, useMemo, useCallback, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { useDropzone } from 'react-dropzone';
