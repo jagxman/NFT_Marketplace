@@ -110,7 +110,7 @@ export const NFTProvider = ({ children }) => {
 
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
-    const provider = new ethers.providers.JsonRpcProvider('https://sepolia.infura.io/v3/7dff926bfb5044d1bbe9a5565b48b49c');
+    const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
     const contract = fetchContract(provider);
 
     const data = await contract.fetchMarketItems();
