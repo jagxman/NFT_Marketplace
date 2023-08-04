@@ -1,15 +1,56 @@
-# Basic Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-Try running some of the following tasks:
+Cryptohat is a web3 marketplace application where users can list and browse NFTs on the Sepolia Network.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
+
+
+
+
+## Features
+
+- Sign in using Metamask
+- Browse NFTs on the marketplace
+- Search NFTs on the marketplace you're interested in.
+- View NFT metadata such as the NFT image, name, and detail.
+- List your own NFTs on the marketplace.
+- See your own NFTs on the marketplace you have minted.
+- Dark/Light Mode Functionality
+
+## Tech
+
+Cryptohat uses many modern technologies listed below.
+
+- Next JS
+- Tailwind CSS
+- Hardhat
+- Ethers
+- IPFS
+
+
+## Installation
+
+Install the dependencies, run your local node, and run the application.
+
+```sh
+npm install
+npx hardhat run scripts/deploy.js --network localhost
 npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+npm run dev
 ```
+
+## ENV Variables
+
+To run this application locally, you must start your local node and then start the app.
+
+| ENV | VALUE |
+| ------ | ------ |
+| PROJECT_ID | Infura API Key |
+| SECRET | Infura API Secret |
+| BASE_URL | DEDICATED GATEWAY SUBDOMAIN |
+| RPC_URL | RPC Gateway |
+
+
+
+## License
+MIT
+
