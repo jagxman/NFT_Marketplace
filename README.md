@@ -3,6 +3,7 @@
 Cryptohat is a web3 marketplace application where users can list and browse NFTs on the Sepolia Network.
 
 
+![image](https://github.com/jagxman/NFT_Marketplace/assets/33289432/7eca8686-c0ad-4d47-b5b0-ac2fbb4f7f2f)
 
 
 
@@ -11,6 +12,7 @@ Cryptohat is a web3 marketplace application where users can list and browse NFTs
 - Sign in using Metamask
 - Browse NFTs on the marketplace
 - Search NFTs on the marketplace you're interested in.
+- Interactions are done on the Smart Contract.
 - View NFT metadata such as the NFT image, name, and detail.
 - List your own NFTs on the marketplace.
 - See your own NFTs on the marketplace you have minted.
@@ -21,6 +23,7 @@ Cryptohat is a web3 marketplace application where users can list and browse NFTs
 Cryptohat uses many modern technologies listed below.
 
 - Next JS
+- Solidity
 - Tailwind CSS
 - Hardhat
 - Ethers
